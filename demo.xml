@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merchantHtmlPacketModel xmlns="Paymetric:XiIntercept:MerchantHtmlPacketModel">
+  <iFramePacket>
+    <hostUri>https://meiyu-aaxis.github.io/demo/test.html</hostUri>
+    <cssUri>https://meiyu-aaxis.github.io/demo/iframe.css</cssUri>
+  </iFramePacket>
+  <merchantHtml>
+    <htmlSection class="payment-content" xmlns="Paymetric:XiIntercept:MerchantHtmlPacketModel">
+      <tag name="section">
+        <tag name="div" class="main-content">
+          <tag name="div" class="billing-content">
+            <tag name="div" class="billing-info">
+              <cardIndicatorSection>
+                <tag name="div">
+                  <label for="cardholderName" text="Full Name on Card" />
+                  <tboxCardHolderName class="xi-long-text" error-class="error-msg" maxlength="100" maxlength-msg="Max length of Full Name on Card is 100 characters." required-msg="This field is required." pattern="^\S.*\S$|(^\S{0,1}\$)" pattern-msg="There is a space in the word or character." />
+                  <validationMsg for="cardholderName" class="valmsg" error-class="valmsg-img" />
+                </tag>
+                <tag name="div" class="creditCardWrap">
+                  <label for="cardNumber" text="Credit Card Number" />
+                  <tboxCardNumber mask-number="true" tokenize="true" maxlength="19" maxlength-msg="Max length of Credit Card Number is 16 characters." class="xi-long-text" error-class="error-msg" luhn-check="true" luhn-check-msg="An invalid card number was entered. Please try again." required-msg="This field is required." />
+
+                  <cardTypeIndicator class="cardIndicator">
+                    <items>
+                      <item for="visa" class="viIndicator"></item>
+                      <item for="mastercard" class="mcIndicator" bin-range-expression="^5"></item>
+                      <item for="discover" class="diIndicator"></item>
+                      <item for="american express" class="axIndicator"></item>
+                      <customItem for="ca" class="caIndicator" bin-range-expression="^9" show-cvv="false"></customItem>
+                    </items>
+                  </cardTypeIndicator>
+                </tag>
+                <validationMsg for="cardNumber" class="valmsg" />
+                <tag name="div" class="inline">
+                  <tag name="div" class="inline-left">
+                    <label for="expDate" text="Expiration Date" />
+                    <tag name="div" class="expiration-date">
+                      <tag name="span" class="expiration-date-month-wrap">
+                        <tboxExpMonth class="expiration-date-month" error-class="error-msg" digits-only="true" />
+                      </tag>
+                      <tboxExpYear class="expiration-date-year" error-class="error-msg" digits-only="true" pattern="[0-9]{4}" pattern-msg="Please enter a valid year" />
+                    </tag>
+                    <tag>
+                      <validationMsg for="expMonth" class="valmsg" />
+                      <validationMsg for="expYear" class="valmsg" />
+                    </tag>
+                  </tag>
+                  <tag name="div" class="inline-right">
+                    <label for="cvv" text="Security Code" />
+                    <tboxCvv class="xi-short-text" error-class="error-msg" digits-only="true" required-msg="This field is required." minlength="3" minlength-msg="The security code cannot be less than 3 digits" maxlength="4" maxlength-msg="The security code cannot be greater than 4 digits" />
+                    <validationMsg for="cvv" class="valmsg" />
+                    <tag name="div" class="text-tooltip-wrap">
+                      <tag name="div" class="text">What’s this?</tag>
+                      <tag name="div" class="text-tooltip-content">
+                        The 3 digits on the back of Visa, Mastercard or Discover (4 digits on front of American Express).
+                      </tag>
+                    </tag>
+                  </tag>
+                </tag>
+              </cardIndicatorSection>
+            </tag>
+          </tag>
+        </tag>
+      </tag>
+    </htmlSection>
+  </merchantHtml>
+</merchantHtmlPacketModel>
