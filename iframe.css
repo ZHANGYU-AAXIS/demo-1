@@ -16,6 +16,7 @@ body {
   position: relative;
   font-size: 14.4px;
   color: #0a2433;
+  -webkit-tap-highlight-color: transparent;
 }
 #c-content #div label::after {
   position: absolute;
