@@ -168,7 +168,7 @@ body {
 #c-content .creditCardWrap .cardIndicator .selected {
   position: absolute;
   width: 0.4rem;
-  height: 0.0266666667rem;
+  height: 0.32rem;
   top: 50%;
   right: 0.1066666667rem;
   transform: translateY(-10%);
@@ -205,5 +205,3 @@ body {
 #c-content .creditCardWrap .axIndicator.selected {
   opacity: 1;
 }
-
-/*# sourceMappingURL=iframe.css.map */
