@@ -206,3 +206,6 @@ body {
 #c-content .creditCardWrap .axIndicator.selected {
   opacity: 1;
 }
+#c-content input {
+  -webkit-tap-highlight-color: transparent;
+}
