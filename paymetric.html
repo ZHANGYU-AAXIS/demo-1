@@ -1,101 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Credit Cards</title>
+    <style>
+      html {
+        font-size: 20vw;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport"
-    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Credit Cards</title>
-  <style>
-    html {
-      font-size: 20vw;
-    }
-    body {
-      width: 100vw;
-      height: 100vh;
-      margin: 0;
-      overflow: hidden;
-      position: relative;
-    }
+      body {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+        position: relative;
+      }
 
-    iframe {
-      border: none;
-      border-width: 0;
-    }
+      iframe {
+        border: none;
+        border-width: 0;
+      }
 
-    button {
-      position: absolute;
-      bottom: 0.6666666666666666rem;
-      right: 0.21333333333333335rem;
-      padding: 0.17333333333333334rem 0.4266666666666667rem;
-      background: #1379c8;
-      border: 0.02666666666666667rem solid #116db4;
-      border-radius: 0.05333333333333334rem;
+      button {
+        position: absolute;
+        bottom: 0.6666666666666666rem;
+        right: 0.21333333333333335rem;
+        padding: 0.17333333333333334rem 0.4266666666666667rem;
+        background: #1379c8;
+        border: 0.02666666666666667rem solid #116db4;
+        border-radius: 0.05333333333333334rem;
 
-      color: #ffffff;
-      font-size: 0.26666666666666666rem;
-    }
-  </style>
-</head>
+        color: #ffffff;
+        font-size: 0.26666666666666666rem;
+      }
+    </style>
+  </head>
 
-<body ontouchstart>
-  <button type="button" id="button">Next</button>
-  <script src="https://xiecomm.paymetric.com/DIeComm/Scripts/XIFrame/XIFrame-1.2.0.js"></script>
-  <script>
-    const query = new URLSearchParams(window.location.search);
+  <body ontouchstart>
+    <button type="button" id="button">Next</button>
+    <script src="https://xiecomm.paymetric.com/DIeComm/Scripts/XIFrame/XIFrame-1.2.0.js"></script>
+    <script>
+      const query = new URLSearchParams(window.location.search);
 
-    const merchantGuid = query.get("merchantGuid");
-    const accessToken = query.get("accessToken");
+      const merchantGuid = query.get("merchantGuid");
+      const accessToken = query.get("accessToken");
 
-    console.log(merchantGuid, accessToken);
+      console.log(merchantGuid, accessToken);
 
-    const targetUrl = `https://cert-xiecomm.paymetric.com/diecomm/View/Iframe/${merchantGuid}/${accessToken}/True`;
+      const targetUrl = `https://cert-xiecomm.paymetric.com/diecomm/View/Iframe/${merchantGuid}/${accessToken}/True`;
 
-    const buttonEl = window.document.querySelector("#button");
+      const buttonEl = window.document.querySelector("#button");
 
-    buttonEl.onclick = submitForm;
+      buttonEl.onclick = submitForm;
 
-    function sendPostMessage(value) {
-      console.log("props: value", value);
-      window.ReactNativeWebView.postMessage(value);
-    }
+      function sendPostMessage(value) {
+        console.log("props: value", value);
+        window.ReactNativeWebView.postMessage(value);
+      }
 
-    function submitForm() {
-      $XIFrame.submit({
-        iFrameId: "dieCommFrame",
-        targetUrl,
-        onSuccess: function (result) {
-          console.log('result', result)
-          const {data} = JSON.parse(result)
-          console.log('data', data)
-          sendPostMessage(JSON.stringify({
-            ...data,
-          }))
-        },
-        onError: function (error) {
-          console.log('props: error', error)
-          sendPostMessage(JSON.stringify(...error))
-        },
-      });
-    }
+      function submitForm() {
+        $XIFrame.submit({
+          iFrameId: "dieCommFrame",
+          targetUrl,
+          onSuccess: function (result) {
+            console.log("result", result);
+            const { data } = JSON.parse(result);
+            console.log("data", data);
+            sendPostMessage(
+              JSON.stringify({
+                ...data,
+              })
+            );
+          },
+          onError: function (error) {
+            console.log("props: error", error);
+            sendPostMessage(JSON.stringify(...error));
+          },
+        });
+      }
 
-    const bodyEl = window.document.querySelector("body");
-    const newIframe = window.document.createElement("iframe");
-    newIframe.id = "dieCommFrame"
-    newIframe.width = "100%"
-    newIframe.height = "100%"
-    newIframe.src = targetUrl
-    newIframe.type = "text/html";
+      const bodyEl = window.document.querySelector("body");
+      const newIframe = window.document.createElement("iframe");
+      newIframe.id = "dieCommFrame";
+      newIframe.width = "100%";
+      newIframe.height = "100%";
+      newIframe.src = targetUrl;
+      newIframe.type = "text/html";
 
-    if (newIframe.attachEvent) {
-      newIframe.attachEvent('onload', () => console.log('props: 1111', 1111))
-    } else {
-      newIframe.onload = () => console.log('props: 2222',2222)
-    }
+      if (newIframe.attachEvent) {
+        newIframe.attachEvent("onload", () =>
+          setPostMessage(
+            JSON.stringify({
+              type: "iframe",
+              value: true,
+            })
+          )
+        );
+      } else {
+        newIframe.onload = () =>
+          setPostMessage(
+            JSON.stringify({
+              type: "iframe",
+              value: true,
+            })
+          );
+      }
 
-    bodyEl.insertAdjacentElement("afterbegin", newIframe);
-  </script>
-</body>
-
+      bodyEl.insertAdjacentElement("afterbegin", newIframe);
+    </script>
+  </body>
 </html>
