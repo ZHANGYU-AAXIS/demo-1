@@ -94,19 +94,17 @@
 
       if (newIframe.attachEvent) {
         newIframe.attachEvent("onload", () =>
-          setPostMessage(
+          sendPostMessage(
             JSON.stringify({
-              type: "iframe",
-              value: true,
+              iframeLoading: true
             })
           )
         );
       } else {
         newIframe.onload = () =>
-          setPostMessage(
+          sendPostMessage(
             JSON.stringify({
-              type: "iframe",
-              value: true,
+              iframeLoading: true
             })
           );
       }
