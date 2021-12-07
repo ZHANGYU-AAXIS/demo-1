@@ -92,22 +92,13 @@
       newIframe.src = targetUrl;
       newIframe.type = "text/html";
 
-      if (newIframe.attachEvent) {
-        newIframe.attachEvent("onload", () =>
-          sendPostMessage(
-            JSON.stringify({
-              iframeLoading: true
-            })
-          )
-        );
-      } else {
-        newIframe.onload = () =>
+      newIframe.onload = () =>
+        console.log(new Date().getTime(), 'iframe')
           sendPostMessage(
             JSON.stringify({
               iframeLoading: true
             })
           );
-      }
 
       bodyEl.insertAdjacentElement("afterbegin", newIframe);
     </script>
