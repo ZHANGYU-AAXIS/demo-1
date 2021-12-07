@@ -87,6 +87,13 @@
     newIframe.height = "100%"
     newIframe.src = targetUrl
     newIframe.type = "text/html";
+
+    if (newIframe.attachEvent) {
+      newIframe.attachEvent('onload', () => console.log('props: 1111', 1111))
+    } else {
+      newIframe.onload = () => console.log('props: 2222',2222)
+    }
+
     bodyEl.insertAdjacentElement("afterbegin", newIframe);
   </script>
 </body>
