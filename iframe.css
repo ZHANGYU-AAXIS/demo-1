@@ -15,18 +15,19 @@ body {
   overflow: hidden;
 }
 #c-content #div {
-  margin-top: 0.0133333333rem;
+  margin-top: 0.2133333333rem;
 }
 #c-content #div label {
   position: relative;
   font-size: 0.192rem;
   color: #0a2433;
+  font-weight: 600;
   -webkit-tap-highlight-color: transparent;
 }
 #c-content #div label::after {
   position: absolute;
-  top: 0.0016666667rem;
-  right: -0.0066666667rem;
+  top: 0.0133333333rem;
+  right: -0.1066666667rem;
   display: block;
   color: #ed3b38;
   font-size: 0.192rem;
@@ -173,7 +174,7 @@ body {
   transform: translateY(-10%);
 }
 #c-content .creditCardWrap .viIndicator {
-  background: url("../Visa.png") no-repeat;
+  background: url("./Visa.png") no-repeat;
   vertical-align: middle;
   opacity: 0;
 }
@@ -181,7 +182,7 @@ body {
   opacity: 1;
 }
 #c-content .creditCardWrap .mcIndicator {
-  background: url("../Master Card.png") no-repeat;
+  background: url("./Master Card.png") no-repeat;
   vertical-align: middle;
   opacity: 0;
 }
@@ -189,7 +190,7 @@ body {
   opacity: 1;
 }
 #c-content .creditCardWrap .diIndicator {
-  background: url("../Discover.png") no-repeat;
+  background: url("./Discover.png") no-repeat;
   vertical-align: middle;
   opacity: 0;
 }
@@ -197,7 +198,7 @@ body {
   opacity: 1;
 }
 #c-content .creditCardWrap .axIndicator {
-  background: url("../American Express.png") no-repeat;
+  background: url("./American Express.png") no-repeat;
   vertical-align: middle;
   opacity: 0;
 }
