@@ -39,7 +39,7 @@ body {
 }
 #c-content #div .expiration-date .expiration-date-month,
 #c-content #div .expiration-date .expiration-date-year {
-  padding: 0.9375rem 0.1066666667rem;
+  padding: 0.2rem 0.1066666667rem;
 }
 #c-content #div .expiration-date .expiration-date-month-wrap {
   margin-top: 0;
@@ -68,13 +68,13 @@ body {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-left: none;
-  padding-left: 0.75rem;
+  padding-left: 0.16rem;
 }
 #c-content #div .expiration-date .line {
   display: flex;
   align-items: center;
   margin: 0;
-  height: 2.9rem;
+  height: 0.64rem;
   border-top: 0.0133333333rem solid #b7cde1;
   border-bottom: 0.0133333333rem solid #6a99c2;
   background-color: #f8fafc;
@@ -91,12 +91,11 @@ body {
   height: 0.64rem;
   background: #f8fafc;
   outline: none;
-  border-radius: 4px;
+  border-radius: 0.0533333333rem;
   border-top: 0.0133333333rem solid #b7cde1;
   border-right: 0.0133333333rem solid #b7cde1;
   border-bottom: 0.0133333333rem solid #6a99c2;
   border-left: 0.0133333333rem solid #b7cde1;
-  padding: 0.9375rem 0.1066666667rem;
 }
 #c-content #div select {
   display: block;
@@ -138,7 +137,7 @@ body {
   display: none;
   position: relative;
   background: #0a2433;
-  border-radius: 8px;
+  border-radius: 0.1066666667rem;
   padding: 0.2133333333rem;
   color: #ffffff;
   font-size: 0.2133333333rem;
@@ -167,14 +166,14 @@ body {
 }
 #c-content .creditCardWrap .cardIndicator .selected {
   position: absolute;
-  width: 1.875rem;
-  height: 2rem;
+  width: 0.4rem;
+  height: 0.0266666667rem;
   top: 50%;
   right: 0.1066666667rem;
   transform: translateY(-10%);
 }
 #c-content .creditCardWrap .viIndicator {
-  background: url("./Visa.png") no-repeat;
+  background: url("../Visa.png") no-repeat;
   vertical-align: middle;
   opacity: 0;
 }
@@ -182,7 +181,7 @@ body {
   opacity: 1;
 }
 #c-content .creditCardWrap .mcIndicator {
-  background: url("./Master Card.png") no-repeat;
+  background: url("../Master Card.png") no-repeat;
   vertical-align: middle;
   opacity: 0;
 }
@@ -190,7 +189,7 @@ body {
   opacity: 1;
 }
 #c-content .creditCardWrap .diIndicator {
-  background: url("./Discover.png") no-repeat;
+  background: url("../Discover.png") no-repeat;
   vertical-align: middle;
   opacity: 0;
 }
@@ -198,7 +197,7 @@ body {
   opacity: 1;
 }
 #c-content .creditCardWrap .axIndicator {
-  background: url("./American Express.png") no-repeat;
+  background: url("../American Express.png") no-repeat;
   vertical-align: middle;
   opacity: 0;
 }
