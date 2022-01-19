@@ -62,23 +62,36 @@
       window.ReactNativeWebView.postMessage(value);
     }
 
-    let inserted = false;
-    const interval = setInterval(() => {
-      const body = document.body, html = document.documentElement;
-      const height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-      if (window?.postMessage) {
-        if (!inserted) {
-          inserted = true;
-        }
-        console.log(height)
-        window.postMessage(JSON.stringify({
-          height
-        }));
+    // let inserted = false;
+    // const interval = setInterval(() => {
+    //   const body = document.body, html = document.documentElement;
+    //   const height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+    //   if (window?.postMessage) {
+    //     if (!inserted) {
+    //       inserted = true;
+    //     }
+    //     console.log(height)
+    //     window.postMessage(JSON.stringify({
+    //       height
+    //     }));
+    //   }
+    //   if (document.readyState === 'complete') {
+    //     clearInterval(interval)
+    //   }
+    // }, 200);
+
+    window.onload = function () {
+      if (typeof window.onload === 'function') {
+        window.onload()
       }
-      if (document.readyState === 'complete') {
-        clearInterval(interval)
-      }
-    }, 200);
+
+      setTimeout(() => {
+        let bodyClientHeight = document.querySelector('body').clientHeight
+        sendPostMessage(JSON.stringify({
+          height: bodyClientHeight
+        }))
+      }, 1);
+    }
 
     function submitForm() {
       $XIFrame.submit({
