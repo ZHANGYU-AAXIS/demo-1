@@ -71,7 +71,9 @@
           inserted = true;
         }
         console.log(height)
-        window.postMessage(height + '');
+        window.postMessage(JSON.stringify({
+          height
+        }));
       }
       if (document.readyState === 'complete') {
         clearInterval(interval)
