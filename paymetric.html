@@ -45,7 +45,6 @@
     <button type="button" id="button">Next</button>
     <script src="https://xiecomm.paymetric.com/DIeComm/Scripts/XIFrame/XIFrame-1.2.0.js"></script>
     <script>
-      const onloadObj = window.onload
 
       const query = new URLSearchParams(window.location.search);
 
@@ -65,9 +64,9 @@
         window.ReactNativeWebView.postMessage(value);
       }
 
-      onloadObj = function () {
-        if (typeof onloadObj === 'function') {
-          onloadObj()
+      window.onload = function () {
+        if (typeof window.onload === 'function') {
+          window.onload()
         }
 
         setTimeout(() => {
