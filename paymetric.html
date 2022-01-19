@@ -41,10 +41,12 @@
     </style>
   </head>
 
-  <body ontouchstart>
+  <body ontouchstart >
     <button type="button" id="button">Next</button>
     <script src="https://xiecomm.paymetric.com/DIeComm/Scripts/XIFrame/XIFrame-1.2.0.js"></script>
     <script>
+      const onloadObj = window.onload
+
       const query = new URLSearchParams(window.location.search);
 
       const merchantGuid = query.get("merchantGuid");
@@ -63,12 +65,24 @@
         window.ReactNativeWebView.postMessage(value);
       }
 
+      onloadObj = function () {
+        if (typeof onloadObj === 'function') {
+          onloadObj()
+        }
+
+        setTimeout(() => {
+          let bodyClientHeight = document.querySelector('body').clientHeight
+          sendPostMessage({
+            height: bodyClientHeight
+          })
+        }, 1);
+      }
+
       function submitForm() {
         $XIFrame.submit({
           iFrameId: "dieCommFrame",
           targetUrl,
           onSuccess: function (result) {
-            console.log("result", result);
             const { data } = JSON.parse(result);
             console.log("data", data);
             sendPostMessage(
