@@ -80,18 +80,29 @@
     //   }
     // }, 200);
 
-    window.onload = function () {
-      if (typeof window.onload === 'function') {
-        window.onload()
-      }
-
-      setTimeout(() => {
-        let bodyClientHeight = document.querySelector('body').clientHeight
+    let inserted = false;
+    const interval = setInterval(() => {
+      let bodyClientHeight = document.querySelector('body').clientHeight
+      if (window?.postMessage) {
+        if (!inserted) {
+          inserted = true;
+        }
         sendPostMessage(JSON.stringify({
           height: bodyClientHeight
         }))
-      }, 1);
-    }
+      }
+      if (document.readyState === 'complete') {
+        clearInterval(interval)
+      }
+    }, 200);
+
+    // window.onload = function () {
+
+    //   let bodyClientHeight = document.querySelector('body').clientHeight
+    //   sendPostMessage(JSON.stringify({
+    //     height: bodyClientHeight
+    //   }))
+    // }
 
     function submitForm() {
       $XIFrame.submit({
