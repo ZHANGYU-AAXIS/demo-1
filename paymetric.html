@@ -72,7 +72,6 @@
       const interval = setInterval(() => {
         if (window?.postMessage) {
           if (!inserted) {
-            bodyClientHeight = 0;
             inserted = true;
           }
           sendPostMessage(JSON.stringify({
