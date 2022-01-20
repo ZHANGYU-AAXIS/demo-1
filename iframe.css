@@ -19,7 +19,7 @@ body {
   margin: 0 0.2133333333rem;
 }
 
-body iframe {
+#dieCommFrame {
   height: 100vh;
 }
 
