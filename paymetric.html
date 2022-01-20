@@ -1,4 +1,5 @@
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -19,13 +20,14 @@
     }
 
     body {
+      min-height: 3rem;
       margin: 0;
       overflow: hidden;
       position: relative;
     }
 
     iframe {
-      min-height: 3rem;
+      min-height: 100vh;
       border: none;
       border-width: 0;
     }
@@ -110,10 +112,9 @@
     const newIframe = window.document.createElement("iframe");
     newIframe.id = "dieCommFrame";
     newIframe.width = "100%";
-    // newIframe.height = "100%";
+    newIframe.height = "100%";
     newIframe.src = targetUrl;
     newIframe.type = "text/html";
-    newIframe.name = '_blank';
     bodyEl.insertAdjacentElement("afterbegin", newIframe);
   </script>
 </body>
