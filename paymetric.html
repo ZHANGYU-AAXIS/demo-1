@@ -65,24 +65,27 @@
 
     function sendPostMessage(value) {
       console.log("props: value", value);
-      window.ReactNativeWebView.postMessage(value);
     }
 
-    let inserted = false;
-    const interval = setInterval(() => {
+    window.onload = function () {
+      let inserted = false;
       let bodyClientHeight = document.querySelector('body').clientHeight
-      if (window?.postMessage) {
-        if (!inserted) {
-          inserted = true;
+
+      const interval = setInterval(() => {
+        if (window?.postMessage) {
+          if (!inserted) {
+            bodyClientHeight = 0;
+            inserted = true;
+          }
+          sendPostMessage(JSON.stringify({
+            height: bodyClientHeight
+          }))
         }
-        sendPostMessage(JSON.stringify({
-          height: bodyClientHeight
-        }))
-      }
-      if (document.readyState === 'complete') {
-        clearInterval(interval)
-      }
-    }, 200);
+        if (document.readyState === 'complete') {
+          clearInterval(interval)
+        }
+      }, 200);
+    }
 
     function submitForm() {
       $XIFrame.submit({
