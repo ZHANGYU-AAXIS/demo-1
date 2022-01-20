@@ -19,6 +19,12 @@ body {
   margin: 0 0.2133333333rem;
 }
 
+iframe {
+  body {
+    min-height: 100vh;
+  }
+}
+
 #c-content {
   overflow: hidden;
 }
