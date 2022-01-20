@@ -114,6 +114,8 @@
     newIframe.height = "100%";
     newIframe.src = targetUrl;
     newIframe.type = "text/html";
+    newIframe.frameborder = '0';
+    newIframe.name = '_blank';
     bodyEl.insertAdjacentElement("afterbegin", newIframe);
   </script>
 </body>
