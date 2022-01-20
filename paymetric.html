@@ -25,6 +25,7 @@
     }
 
     iframe {
+      min-height: 3rem;
       border: none;
       border-width: 0;
     }
@@ -109,7 +110,7 @@
     const newIframe = window.document.createElement("iframe");
     newIframe.id = "dieCommFrame";
     newIframe.width = "100%";
-    newIframe.height = "100%";
+    // newIframe.height = "100%";
     newIframe.src = targetUrl;
     newIframe.type = "text/html";
     newIframe.name = '_blank';
