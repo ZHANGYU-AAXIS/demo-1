@@ -105,14 +105,24 @@
       });
     }
 
-    function setIframeHeight(iframe) {
-      if (iframe) {
-        var iframeWin = iframe.contentWindow || iframe.contentDocument?.parentWindow;
-        if (iframeWin.document.body) {
-          iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+    function setIframeHeight(id) {
+      try {
+        var iframe = document.getElementById(id);
+        if (iframe.attachEvent) {
+          iframe.attachEvent("onload", function () {
+            iframe.height = iframe.contentWindow.document.documentElement.scrollHeight;
+          });
+          return;
+        } else {
+          iframe.onload = function () {
+            iframe.height = iframe.contentDocument.body.scrollHeight;
+          };
+          return;
         }
+      } catch (e) {
+        throw new Error('setIframeHeight Error');
       }
-    };
+    }
 
     window.onload = function () {
       setIframeHeight(document.getElementById('dieCommFrame'));
@@ -125,7 +135,6 @@
     // newIframe.height = "100%";
     newIframe.src = targetUrl;
     newIframe.type = "text/html";
-    // newIframe.onload = setIframeHeight(newIframe)
     bodyEl.insertAdjacentElement("afterbegin", newIframe);
   </script>
 </body>
