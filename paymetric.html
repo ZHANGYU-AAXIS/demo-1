@@ -63,31 +63,32 @@
 
     function sendPostMessage(value) {
       console.log("props: value", value);
+      window.ReactNativeWebView.postMessage(value);
     }
 
     window.onload = function () {
-      // let inserted = false;
-      // let bodyClientHeight = document.querySelector('body').clientHeight
+      let inserted = false;
+      let bodyClientHeight = document.querySelector('body').clientHeight
 
-      // const interval = setInterval(() => {
-      //   if (window?.postMessage) {
-      //     if (!inserted) {
-      //       inserted = true;
-      //     }
-      //     sendPostMessage(JSON.stringify({
-      //       height: bodyClientHeight
-      //     }))
-      //   }
-      //   if (document.readyState === 'complete') {
-      //     clearInterval(interval)
-      //   }
-      // }, 200);
-      setTimeout(() => {
-        let bodyClientHeight = document.querySelector('body').clientHeight
-        sendPostMessage(JSON.stringify({
-          height: bodyClientHeight
-        }))
-      }, 1);
+      const interval = setInterval(() => {
+        if (window?.postMessage) {
+          if (!inserted) {
+            inserted = true;
+          }
+          sendPostMessage(JSON.stringify({
+            height: bodyClientHeight
+          }))
+        }
+        if (document.readyState === 'complete') {
+          clearInterval(interval)
+        }
+      }, 200);
+      // setTimeout(() => {
+      //   let bodyClientHeight = document.querySelector('body').clientHeight
+      //   sendPostMessage(JSON.stringify({
+      //     height: bodyClientHeight
+      //   }))
+      // }, 1);
     }
 
     function submitForm() {
