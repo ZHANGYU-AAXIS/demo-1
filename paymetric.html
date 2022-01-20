@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
   <meta charset="UTF-8" />
@@ -26,7 +25,6 @@
     }
 
     iframe {
-      min-height: 100vh;
       border: none;
       border-width: 0;
     }
@@ -114,7 +112,6 @@
     newIframe.height = "100%";
     newIframe.src = targetUrl;
     newIframe.type = "text/html";
-    newIframe.frameborder = '0';
     newIframe.name = '_blank';
     bodyEl.insertAdjacentElement("afterbegin", newIframe);
   </script>
