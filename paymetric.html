@@ -108,9 +108,10 @@
 
     const bodyEl = window.document.querySelector("body");
     const newIframe = window.document.createElement("iframe");
+
     newIframe.id = "dieCommFrame";
     newIframe.width = "100%";
-    newIframe.height = "750px";
+    newIframe.height = "580px";
     newIframe.src = targetUrl;
     newIframe.type = "text/html";
     bodyEl.insertAdjacentElement("afterbegin", newIframe);
