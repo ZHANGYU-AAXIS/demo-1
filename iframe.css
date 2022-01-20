@@ -17,7 +17,10 @@ html {
 
 body {
   margin: 0 0.2133333333rem;
-  overflow: hidden;
+}
+
+body iframe {
+  height: 100vh;
 }
 
 #c-content {
