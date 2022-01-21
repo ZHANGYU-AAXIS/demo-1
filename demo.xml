@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merchantHtmlPacketModel xmlns="Paymetric:XiIntercept:MerchantHtmlPacketModel">
   <iFramePacket>
-    <hostUri>https://meiyu-aaxis.github.io/demo/test.html</hostUri>
-    <cssUri>https://meiyu-aaxis.github.io/demo/iframe.css</cssUri>
+    <hostUri>http://localhost:3000</hostUri>
+    <cssUri>http://localhost:3000/iframe.css</cssUri>
   </iFramePacket>
   <merchantHtml>
     <htmlSection class="payment-content" xmlns="Paymetric:XiIntercept:MerchantHtmlPacketModel">
@@ -18,7 +18,7 @@
                 </tag>
                 <tag name="div" class="creditCardWrap">
                   <label for="cardNumber" text="Credit Card Number" />
-                  <tboxCardNumber is-numeric="true" mask-number="true" tokenize="true" maxlength="19" maxlength-msg="Max length of Credit Card Number is 16 characters." class="xi-long-text" error-class="error-msg" luhn-check="true" luhn-check-msg="An invalid card number was entered. Please try again." required-msg="This field is required." />
+                  <tboxCardNumber is-numeric="true" mask-number="true" tokenize="true" maxlength="19" maxlength-msg="Max length of Credit Card Number is 16 characters." class="xi-long-text" error-class="error-msg" luhn-check="true" luhn-check-msg="An invalid card number was entered. Please try again." required-msg="This field is required." pattern="^\d*$" pattern-msg="Please enter the number" />
                   <cardTypeIndicator class="cardIndicator">
                     <items>
                       <item for="visa" class="viIndicator"></item>
