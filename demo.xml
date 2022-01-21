@@ -13,7 +13,7 @@
               <cardIndicatorSection>
                 <tag name="div">
                   <label for="cardholderName" text="Full Name on Card" />
-                  <tboxCardHolderName class="xi-long-text" error-class="error-msg" maxlength="100" maxlength-msg="Max length of Full Name on Card is 100 characters." required-msg="This field is required." pattern="^\S.*\S$|(^\S{0,1}\$)" pattern-msg="There is a space in the word or character." />
+                  <tboxCardHolderName class="xi-long-text" error-class="error-msg" maxlength="100" maxlength-msg="Max length of Full Name on Card is 100 characters." required-msg="This field is required." pattern="[a-zA-Z]+\s?[a-zA-Z]+" pattern-msg="There is a space in the word or character." />
                   <validationMsg for="cardholderName" class="valmsg" error-class="valmsg-img" />
                 </tag>
                 <tag name="div" class="creditCardWrap">
