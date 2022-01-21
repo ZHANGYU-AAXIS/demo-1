@@ -18,7 +18,7 @@
                 </tag>
                 <tag name="div" class="creditCardWrap">
                   <label for="cardNumber" text="Credit Card Number" />
-                  <tboxCardNumber is-numeric="true" mask-number="true" tokenize="true" maxlength="19" maxlength-msg="Max length of Credit Card Number is 16 characters." class="xi-long-text" error-class="error-msg" luhn-check="true" luhn-check-msg="An invalid card number was entered. Please try again." required-msg="This field is required." pattern="^\d*$" pattern-msg="Please enter the number" />
+                  <tboxCardNumber is-numeric="true" mask-number="true" tokenize="true" maxlength="19" maxlength-msg="Max length of Credit Card Number is 16 characters." class="xi-long-text" error-class="error-msg" luhn-check="true" luhn-check-msg="An invalid card number was entered. Please try again." required-msg="This field is required." />
                   <cardTypeIndicator class="cardIndicator">
                     <items>
                       <item for="visa" class="viIndicator"></item>
