@@ -24,7 +24,7 @@
                       <item for="visa" class="viIndicator"></item>
                       <item for="mastercard" class="mcIndicator" bin-range-expression="^5"></item>
                       <item for="discover" class="diIndicator"></item>
-                      <item for="american express" class="axIndicator"></item>
+                      <customItem for="american express" class="axIndicator" bin-range-expression="^(34|37)"></customItem>
                     </items>
                   </cardTypeIndicator>
                 </tag>
@@ -34,9 +34,9 @@
                     <label for="expDate" text="Expiration Date" />
                     <tag name="div" class="expiration-date">
                       <tag name="span" class="expiration-date-month-wrap">
-                        <tboxExpMonth class="expiration-date-month" error-class="error-msg" digits-only="true" placeholder="MM" />
+                        <tboxExpMonth is-numeric="true" class="expiration-date-month" error-class="error-msg" digits-only="true" placeholder="MM" />
                       </tag>
-                      <tboxExpYear class="expiration-date-year" error-class="error-msg" digits-only="true" pattern="[0-9]{4}" pattern-msg="Please enter a valid year" placeholder="YYYY" />
+                      <tboxExpYear is-numeric="true" class="expiration-date-year" error-class="error-msg" digits-only="true" pattern="[0-9]{4}" pattern-msg="Please enter a valid year" placeholder="YYYY" />
                     </tag>
                     <tag>
                       <validationMsg for="expMonth" class="valmsg" />
@@ -45,7 +45,7 @@
                   </tag>
                   <tag name="div" class="inline-right">
                     <label for="cvv" text="Security Code" />
-                    <tboxCvv class="xi-short-text" error-class="error-msg" digits-only="true" required-msg="This field is required." minlength="3" minlength-msg="The security code cannot be less than 3 digits" maxlength="4" maxlength-msg="The security code cannot be greater than 4 digits" />
+                    <tboxCvv is-numeric="true" class="xi-short-text" error-class="error-msg" digits-only="true" required-msg="This field is required." minlength="3" minlength-msg="The security code cannot be less than 3 digits" maxlength="4" maxlength-msg="The security code cannot be greater than 4 digits" />
                     <validationMsg for="cvv" class="valmsg" />
                     <tag name="div" class="text-tooltip-wrap">
                       <tag name="div" class="text">What&#8242;s this?</tag>
