@@ -23,6 +23,11 @@ body {
   height: 100vh;
 }
 
+#c-cvvh {
+  width: 20px;
+  height: 20px;
+}
+
 #c-content {
   overflow: hidden;
 }
@@ -181,7 +186,7 @@ body {
   border-radius: 0.1066666667rem;
   padding: 0.2133333333rem;
   color: #ffffff;
-  font-size: 0.2133333333rem;
+  font-size: 0.192rem;
   margin-left: -100%;
   margin-top: 0.1066666667rem !important;
 }
@@ -219,7 +224,7 @@ body {
 }
 
 #c-content .creditCardWrap .viIndicator {
-  background: url("./Visa.png") no-repeat;
+  background: url("./Visa.svg") no-repeat;
   vertical-align: middle;
   opacity: 0;
 }
@@ -229,7 +234,7 @@ body {
 }
 
 #c-content .creditCardWrap .mcIndicator {
-  background: url("./Master Card.png") no-repeat;
+  background: url("./Master Card.svg") no-repeat;
   vertical-align: middle;
   opacity: 0;
 }
@@ -239,7 +244,7 @@ body {
 }
 
 #c-content .creditCardWrap .diIndicator {
-  background: url("./Discover.png") no-repeat;
+  background: url("./Discover.svg") no-repeat;
   vertical-align: middle;
   opacity: 0;
 }
@@ -249,7 +254,7 @@ body {
 }
 
 #c-content .creditCardWrap .axIndicator {
-  background: url("./American Express.png") no-repeat;
+  background: url("./American Express.svg") no-repeat;
   vertical-align: middle;
   opacity: 0;
 }
