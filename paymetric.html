@@ -102,7 +102,7 @@
         onError: function (error) {
           console.log("props: error", error);
           sendPostMessage(JSON.stringify({
-            nativeEvent: JSON.parse(error)
+            nativeEvent: JSON.parse(error)?.data
           }));
         },
       });
