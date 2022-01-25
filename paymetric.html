@@ -101,7 +101,9 @@
         },
         onError: function (error) {
           console.log("props: error", error);
-          sendPostMessage(error);
+          sendPostMessage(JSON.stringify({
+            nativeEvent: JSON.parse(error)
+          }));
         },
       });
     }
