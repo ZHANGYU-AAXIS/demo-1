@@ -109,7 +109,7 @@
         },
         onError: function (error) {
           console.log("props: error", error);
-          sendPostMessage(JSON.stringify(JSON.parse(error)?.data));
+          sendPostMessage(JSON.stringify(JSON.parse(error).data));
         },
       });
     }
