@@ -23,22 +23,15 @@ body {
   height: 100vh;
 }
 
-#c-cvvh {
-  width: 20px;
-  height: 20px;
-}
-
 #c-content {
   overflow: hidden;
 }
-
 #c-content #div {
   margin-top: 0.2133333333rem;
 }
 #c-content #div:first-child {
   margin-top: 0;
 }
-
 #c-content #div label {
   position: relative;
   font-size: 0.192rem;
@@ -46,7 +39,6 @@ body {
   font-weight: 600;
   -webkit-tap-highlight-color: transparent;
 }
-
 #c-content #div label::after {
   position: absolute;
   top: 0.0133333333rem;
@@ -57,22 +49,24 @@ body {
   line-height: 1.2;
   content: "*";
 }
-
 #c-content #div .expiration-date {
   margin-top: 0;
   display: flex;
 }
-
-#c-content #div .expiration-date .expiration-date-month,
-#c-content #div .expiration-date .expiration-date-year {
-  padding: 0.2rem 0.1066666667rem;
-}
-
 #c-content #div .expiration-date .expiration-date-month-wrap {
   margin-top: 0;
   position: relative;
 }
-
+#c-content #div .expiration-date .expiration-date-month-wrap::after {
+  content: "/";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  font-size: 0.1866666667rem;
+  color: #60717a;
+  z-index: 1;
+  transform: translateY(-50%);
+}
 #c-content
   #div
   .expiration-date
@@ -82,91 +76,47 @@ body {
   border-bottom-right-radius: 0;
   border-right: none;
 }
-
-#c-content #div .expiration-date .expiration-date-month-wrap::after {
-  content: "/";
-  position: absolute;
-  top: 50%;
-  right: 0;
-  font-size: 0.192rem;
-  color: #60717a;
-  z-index: 1;
-  transform: translateY(-50%);
-}
-
 #c-content #div .expiration-date .expiration-date-year {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-left: none;
-  padding-left: 0.16rem;
 }
-
-#c-content #div .expiration-date .line {
-  display: flex;
-  align-items: center;
-  margin: 0;
-  height: 0.64rem;
-  border-top: 0.0133333333rem solid #b7cde1;
-  border-bottom: 0.0133333333rem solid #6a99c2;
-  background-color: #f8fafc;
+#c-content #div .expiration-date .expiration-date-month,
+#c-content #div .expiration-date .expiration-date-year {
+  padding: 0.2rem 0.1066666667rem 0.1733333333rem;
 }
-
+#c-content #div .expiration-date .xi-long-text {
+  width: 100%;
+}
 #c-content #div .error-msg {
   background: #fdf0ef;
   border-color: #ed3b38;
 }
-
-#c-content #div .xi-long-text {
-  width: 100%;
-}
-
-#c-content #div input {
-  display: block;
-  height: 0.64rem;
-  background: #f8fafc;
-  outline: none;
-  font-size: 0.2133333333rem;
-  border-radius: 0.0533333333rem;
-  border-top: 0.0133333333rem solid #b7cde1;
-  border-right: 0.0133333333rem solid #b7cde1;
-  border-bottom: 0.0133333333rem solid #6a99c2;
-  border-left: 0.0133333333rem solid #b7cde1;
-}
-
 #c-content #div select {
   display: block;
 }
-
 #c-content .inline {
   display: flex;
   justify-content: space-between;
 }
-
 #c-content .inline-left,
 #c-content .inline-right {
   width: 50%;
+  margin-right: 0.1066666667rem;
   margin-top: 0 !important;
 }
-
 #c-content .inline-left input,
 #c-content .inline-right input {
   width: 100%;
 }
-
-#c-content .inline-left {
-  margin-right: 0.1066666667rem;
-}
-
-#c-content .inline-right {
-  margin-left: 0.1066666667rem;
-}
-
 #c-content .valmsg {
-  font-size: 0.2133333333rem;
+  font-size: 0.192rem;
   color: #0a2433;
   margin-top: 0.1066666667rem;
+  background: url("./Error.svg") no-repeat;
+  background-size: 0.2133333333rem;
+  padding-left: 0.24rem;
 }
-
 #c-content .text-tooltip-wrap {
   display: inline-block;
   margin-top: 0 !important;
@@ -174,11 +124,12 @@ body {
   color: #1379c8;
   font-weight: 500;
 }
-
+#c-content .text-tooltip-wrap:hover .text-tooltip-content {
+  display: block;
+}
 #c-content .text-tooltip-wrap .text {
   margin-top: 0 !important;
 }
-
 #c-content .text-tooltip-wrap .text-tooltip-content {
   display: none;
   position: relative;
@@ -190,7 +141,6 @@ body {
   margin-left: -100%;
   margin-top: 0.1066666667rem !important;
 }
-
 #c-content .text-tooltip-wrap .text-tooltip-content::after {
   content: "";
   bottom: 100%;
@@ -205,15 +155,9 @@ body {
   margin-left: -0.2133333333rem;
   line-height: 1.2;
 }
-
-#c-content .text-tooltip-wrap:hover .text-tooltip-content {
-  display: block;
-}
-
 #c-content .creditCardWrap {
   position: relative;
 }
-
 #c-content .creditCardWrap .cardIndicator .selected {
   position: absolute;
   width: 0.4rem;
@@ -222,51 +166,46 @@ body {
   right: 0.1066666667rem;
   transform: translateY(-10%);
 }
-
 #c-content .creditCardWrap .viIndicator {
   background: url("./Visa.svg") no-repeat;
   vertical-align: middle;
   opacity: 0;
 }
-
-#c-content .creditCardWrap .viIndicator.selected {
-  opacity: 1;
-}
-
 #c-content .creditCardWrap .mcIndicator {
   background: url("./Master Card.svg") no-repeat;
   vertical-align: middle;
   opacity: 0;
 }
-
-#c-content .creditCardWrap .mcIndicator.selected {
-  opacity: 1;
-}
-
 #c-content .creditCardWrap .diIndicator {
   background: url("./Discover.svg") no-repeat;
   vertical-align: middle;
   opacity: 0;
 }
-
-#c-content .creditCardWrap .diIndicator.selected {
-  opacity: 1;
-}
-
 #c-content .creditCardWrap .axIndicator {
   background: url("./American Express.svg") no-repeat;
   vertical-align: middle;
   opacity: 0;
 }
-
+#c-content .creditCardWrap .viIndicator.selected,
+#c-content .creditCardWrap .mcIndicator.selected,
+#c-content .creditCardWrap .diIndicator.selected,
 #c-content .creditCardWrap .axIndicator.selected {
   opacity: 1;
 }
-
 #c-content input {
+  width: 100%;
+  display: block;
+  height: 0.64rem;
+  background: #f8fafc;
+  outline: none;
+  font-size: 0.2133333333rem;
+  border-radius: 0.0533333333rem;
+  border-top: 0.0133333333rem solid #b7cde1;
+  border-right: 0.0133333333rem solid #b7cde1;
+  border-bottom: 0.0133333333rem solid #6a99c2;
+  border-left: 0.0133333333rem solid #b7cde1;
   -webkit-tap-highlight-color: transparent;
 }
-
 #c-content input::-webkit-input-placeholder {
   color: #60717a;
 }

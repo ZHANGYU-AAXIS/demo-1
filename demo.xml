@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merchantHtmlPacketModel xmlns="Paymetric:XiIntercept:MerchantHtmlPacketModel">
   <iFramePacket>
-    <hostUri>https://meiyu-aaxis.github.io/demo/</hostUri>
-    <cssUri>https://meiyu-aaxis.github.io/demo/iframe.css</cssUri>
+    <hostUri>http://localhost:3000/demo/</hostUri>
+    <cssUri>http://localhost:3000/iframe.css</cssUri>
   </iFramePacket>
   <merchantHtml>
     <htmlSection class="payment-content" xmlns="Paymetric:XiIntercept:MerchantHtmlPacketModel">
@@ -13,12 +13,12 @@
               <cardIndicatorSection>
                 <tag name="div">
                   <label for="cardholderName" text="Full Name on Card" />
-                  <tboxCardHolderName class="xi-long-text" error-class="error-msg" maxlength="100" maxlength-msg="Max length of Full Name on Card is 100 characters." required-msg="This field is required." pattern="[a-zA-Z]+\s?[a-zA-Z]+" pattern-msg="There is a space in the word or character." />
+                  <tboxCardHolderName class="xi-long-text" error-class="error-msg" maxlength="100" maxlength-msg="Max length of Full Name on Card is 100 characters" required-msg="This field is required" pattern="^(?![\s!@#])[^!@#]*(?![\s!@#]).$" pattern-msg="There is a space in the word or character" />
                   <validationMsg for="cardholderName" class="valmsg" error-class="valmsg-img" />
                 </tag>
                 <tag name="div" class="creditCardWrap">
                   <label for="cardNumber" text="Credit Card Number" />
-                  <tboxCardNumber is-numeric="true" mask-number="true" tokenize="true" maxlength="19" maxlength-msg="Max length of Credit Card Number is 16 characters." class="xi-long-text" error-class="error-msg" luhn-check="true" luhn-check-msg="An invalid card number was entered. Please try again." required-msg="This field is required." />
+                  <tboxCardNumber is-numeric="true" mask-number="true" tokenize="true" maxlength="19" maxlength-msg="Max length of Credit Card Number is 16 characters" class="xi-long-text" error-class="error-msg" luhn-check="true" luhn-check-msg="An invalid card number was entered, Please try again" required-msg="This field is required" />
                   <cardTypeIndicator class="cardIndicator">
                     <items>
                       <item for="visa" class="viIndicator"></item>
@@ -45,11 +45,11 @@
                   </tag>
                   <tag name="div" class="inline-right">
                     <label for="cvv" text="Security Code" />
-                    <tboxCvv is-numeric="true" class="xi-short-text" error-class="error-msg" digits-only="true" required-msg="This field is required." minlength="3" minlength-msg="The security code cannot be less than 3 digits" maxlength="4" maxlength-msg="The security code cannot be greater than 4 digits" />
+                    <tboxCvv is-numeric="true" class="xi-short-text" error-class="error-msg" digits-only="true" required-msg="This field is required" minlength="3" minlength-msg="The security code cannot be less than 3 digits" maxlength="4" maxlength-msg="The security code cannot be greater than 4 digits" />
                     <validationMsg for="cvv" class="valmsg" />
                     <tag name="div" class="text-tooltip-wrap">
                       <tag name="div" class="text">What&#8242;s this?</tag>
-                      <tag name="div" class="text-tooltip-content">The 3 digits on the back of Visa, Mastercard or Discover (4 digits on front of American Express).</tag>
+                      <tag name="div" class="text-tooltip-content">The 3 digits on the back of Visa, Mastercard or Discover (4 digits on front of American Express)</tag>
                     </tag>
                   </tag>
                 </tag>
