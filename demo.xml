@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merchantHtmlPacketModel xmlns="Paymetric:XiIntercept:MerchantHtmlPacketModel">
   <iFramePacket>
-    <hostUri>http://localhost:3000</hostUri>
-    <cssUri>http://localhost:3000/iframe.css</cssUri>
+    <hostUri>https://meiyu-aaxis.github.io/demo/</hostUri>
+    <cssUri>https://meiyu-aaxis.github.io/demo/iframe.css</cssUri>
   </iFramePacket>
   <merchantHtml>
     <htmlSection class="payment-content" xmlns="Paymetric:XiIntercept:MerchantHtmlPacketModel">
