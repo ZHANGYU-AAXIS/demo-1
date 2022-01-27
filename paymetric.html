@@ -64,7 +64,16 @@
 
     function sendPostMessage(value) {
       console.log("props: value", value);
-      window.ReactNativeWebView.postMessage(value);
+      try {
+        if (window.ReactNativeWebView) {
+          window.ReactNativeWebView.postMessage(value);
+        } else {
+          window.postMessage(value);
+        }
+      }
+      catch (err) {
+        console.log(err)
+      }
     }
 
     window.onload = function () {
@@ -72,14 +81,13 @@
       let bodyClientHeight = document.querySelector('body').clientHeight
 
       const interval = setInterval(() => {
-        if (window?.postMessage) {
-          if (!inserted) {
-            inserted = true;
-          }
+        if (!inserted) {
+          inserted = true;
           sendPostMessage(JSON.stringify({
             height: bodyClientHeight
           }))
         }
+
         if (document.readyState === 'complete') {
           clearInterval(interval)
         }
